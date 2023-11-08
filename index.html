@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body id="body">
+    <div class="container">
+        <div id="random">
+            <h1 id="random">Random Background Color</h1>
+        </div>
+        <div class="center">
+            <button id="btn1" class="btn" onclick="change()" >All colors</button>
+            <button id="btn2" class="btn" onclick="background()"> Background Color </button>
+            <button id="btn3" class="btn" onclick="text()" > Text Color </button>
+        </div>
+    </div>
+</body> 
+<script>
+    function change(){
+        // colors = document.getElementById("body");
+        document.getElementById("body").style.backgroundColor = color();
+        document.getElementById("random").style.color = color();
+        document.getElementById("btn1").style.backgroundColor = color();
+        // console.log(colors);
+    }
+    function color(){
+        let colors = "#";
+        let hex = '0123456abcdef';
+        for (let index = 0;index < 6; index++) {
+            let ran = hex[Math.floor(Math.random()*13)]
+            colors += ran
+        }
+        return colors
+    }
+
+    function background(){
+        document.getElementById("body").style.backgroundColor = color();
+        document.getElementById("btn2").style.backgroundColor = color();
+    }
+
+    function text(){
+        document.getElementById("random").style.color = color();
+        document.getElementById("btn3").style.backgroundColor = color();
+    }
+</script>
+</html>
